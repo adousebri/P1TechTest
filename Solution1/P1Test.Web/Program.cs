@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using P1Test.API.SECCI.Handlers;
 using P1Test.Web.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
-
+builder.Services.AddMediatR(r =>
+    {
+        r.AddBehavior<GetListPortFoliosHandler>();
+        r.AddBehavior<GetPortfolioReportHandler>();
+        r.AddBehavior<GetPortfolioSummaryHandler>();
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

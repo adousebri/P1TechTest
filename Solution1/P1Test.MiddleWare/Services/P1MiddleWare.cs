@@ -1,25 +1,27 @@
 ﻿namespace P1Test.MiddleWare.Services
 {
+    using MediatR;
+    using P1Test.API.SECCI.Requests;
     using P1Test.Interfaces.API;
     using P1Test.Interfaces.Services;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using P1Test.Models.FrontEnd;
 
     public class P1MiddleWare : IMiddleWareService
     {
-        private readonly IPortfolioDataAPI _portfolioDataAPI;
+        private readonly IMediator _mediator;
 
-        public P1MiddleWare(IPortfolioDataAPI portfolioDataAPI)
+        public P1MiddleWare(IMediator mediator)
         {
-            _portfolioDataAPI = portfolioDataAPI;
+            _mediator = mediator;
         }
 
-        public object FirmSummary()
+        public FirmSummary FirmSummary()
         {
-            return null;
+            var portfolois = _mediator.Send(new GetListPortFoliosRequest());
+            var portFolioReport = _mediator.Send(new GetPortfolioReportRequest());
+            var portFolioSummary = _mediator.Send(new GetPortfolioSummaryRequest());
+
+            return new FirmSummary();
         }
     }
 }

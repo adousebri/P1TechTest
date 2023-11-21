@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\P1Test.API.SECCI\P1Test.API.SECCI.csproj" />
     <ProjectReference Include="..\P1Test.Interfaces\P1Test.Interfaces.csproj" />
   </ItemGroup>
 
