@@ -8,3 +8,10 @@
 /Solution1/P1Test.Interfaces/obj
 /Solution1/P1Test.Models/bin/Debug/net6.0
 /Solution1/P1Test.Models/obj
+/P1Test.API.SECCI/obj
+/Solution1/P1Test.API.SECCI.IntegrationTest/bin/Debug/net6.0
+/Solution1/P1Test.API.SECCI.IntegrationTest/obj
+/Solution1/P1Test.API.SECCI.Test/bin/Debug/net6.0
+/Solution1/P1Test.API.SECCI.Test/obj
+/Solution1/P1Test.MiddleWare/obj
+/Solution1/P1Test.Web/obj
