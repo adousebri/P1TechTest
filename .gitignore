@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Solution1/P1Test.API.SECCI/bin/Debug/net6.0
+/Solution1/P1Test.API.SECCI/obj
+/Solution1/P1Test.Interfaces/bin/Debug/net6.0
+/Solution1/P1Test.Interfaces/obj
+/Solution1/P1Test.Models/bin/Debug/net6.0
+/Solution1/P1Test.Models/obj

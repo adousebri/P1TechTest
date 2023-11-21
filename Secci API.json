@@ -94,6 +94,35 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "1603778a-4aa5-486b-a9ba-e36b4afd32af",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "portfolio/:firmId",
+      "responses": [
+        {
+          "uuid": "0daff8b3-4b5b-4d96-b1a6-cb4f971d2d2e",
+          "body": "{\r\n    \"data\": [\r\n        {\r\n            \"id\": \"00GG5G2\",\r\n            \"firmId\": \"P1IMX\",\r\n            \"name\": \"Mr Joe Bloggs\",\r\n            \"status\": \"Active\",\r\n            \"nodeId\": [\r\n                \"8\"\r\n            ],\r\n            \"nodeName\": [\r\n                \"P1 Demo Firm\"\r\n            ],\r\n            \"currency\": \"GBP\",\r\n            \"currentValue\": 950373.23,\r\n            \"accounts\": 6,\r\n            \"uninvestedCash\": 201073.57,\r\n            \"growth\": 561596.23,\r\n            \"growthPercent\": 2.979,\r\n            \"adjustedGrowth\": 561596.23,\r\n            \"adjustedGrowthPercent\": 2.979\r\n        },\r\n        {\r\n            \"id\": \"023C2B7\",\r\n            \"firmId\": \"P1IMX\",\r\n            \"name\": \"Mr Shaun Dawson\",\r\n            \"status\": \"Pending\",\r\n            \"nodeId\": [\r\n                \"8\"\r\n            ],\r\n            \"nodeName\": [\r\n                \"P1 Demo Firm\"\r\n            ],\r\n            \"currency\": \"GBP\",\r\n            \"currentValue\": 0,\r\n            \"accounts\": 0,\r\n            \"uninvestedCash\": 0,\r\n            \"growth\": 0,\r\n            \"growthPercent\": 0,\r\n            \"adjustedGrowth\": 0,\r\n            \"adjustedGrowthPercent\": 0\r\n        },\r\n        {\r\n            \"id\": \"0231FGB\",\r\n            \"firmId\": \"P1IMX\",\r\n            \"name\": \"Mr John Doe\",\r\n            \"status\": \"Pending\",\r\n            \"nodeId\": [\r\n                \"9\"\r\n            ],\r\n            \"nodeName\": [\r\n                \"Demo Clients\"\r\n            ],\r\n            \"currency\": \"GBP\",\r\n            \"currentValue\": 0,\r\n            \"accounts\": 2,\r\n            \"uninvestedCash\": 0,\r\n            \"growth\": 0,\r\n            \"growthPercent\": 0,\r\n            \"adjustedGrowth\": 0,\r\n            \"adjustedGrowthPercent\": 0\r\n        },\r\n        {\r\n            \"id\": \"00GH48D\",\r\n            \"firmId\": \"P1IMX\",\r\n            \"name\": \"Mr Adam Prestwood\",\r\n            \"status\": \"Pending\",\r\n            \"nodeId\": [\r\n                \"8\"\r\n            ],\r\n            \"nodeName\": [\r\n                \"P1 Demo Firm\"\r\n            ],\r\n            \"currency\": \"GBP\",\r\n            \"currentValue\": 0,\r\n            \"accounts\": 2,\r\n            \"uninvestedCash\": 0,\r\n            \"growth\": 0,\r\n            \"growthPercent\": 0,\r\n            \"adjustedGrowth\": 0,\r\n            \"adjustedGrowthPercent\": 0\r\n        }\r\n    ],\r\n    \"meta\": {\r\n        \"count\": 4\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -108,6 +137,10 @@
     {
       "type": "route",
       "uuid": "b17f945a-ff1f-4965-921e-13702f426a70"
+    },
+    {
+      "type": "route",
+      "uuid": "1603778a-4aa5-486b-a9ba-e36b4afd32af"
     }
   ],
   "proxyMode": false,
