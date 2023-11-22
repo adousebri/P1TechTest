@@ -1,4 +1,7 @@
-﻿using P1Test.Models.SECCI;
+﻿using Microsoft.Extensions.Configuration;
+using Moq;
+using P1Test.Interfaces.API;
+using P1Test.Models.SECCI;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -10,14 +13,18 @@ namespace P1Test.API.SECCI.IntegrationTest
 {
     public class SecciApiTests
     {
-        private IRestClient _restClient;
+        private ISecciClient _restClient;
+        private Mock<IConfiguration> _configuration;
         private SecciApi _secciApi;
 
         [SetUp]
         public void Setup()
         {
-            _restClient = new RestClient("http://localhost:3001");
-            _secciApi = new SecciApi(_restClient);
+            _configuration = new Mock<IConfiguration>();
+            _configuration.Setup(r => r["Secci.BaseUrl"])
+                .Returns("http://localhost:3001");
+
+            _secciApi = new SecciApi(new SecciClient(_configuration.Object));
         }
 
         [Test]

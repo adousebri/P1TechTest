@@ -1,7 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using P1Test.API.SECCI;
 using P1Test.API.SECCI.Handlers;
+using P1Test.Interfaces.API;
+using P1Test.Interfaces.Services;
+using P1Test.MiddleWare.Services;
 using P1Test.Web.Data;
+using RestSharp;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +21,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddMediatR(r =>
-    {
-        r.AddBehavior<GetListPortFoliosHandler>();
-        r.AddBehavior<GetPortfolioReportHandler>();
-        r.AddBehavior<GetPortfolioSummaryHandler>();
-    });
+{
+    r.RegisterServicesFromAssemblies(typeof(GetListPortFoliosHandler).GetType().Assembly);
+});
+builder.Services.AddTransient<IMiddleWareService, P1MiddleWare>();
+builder.Services.AddTransient<IPortfolioDataAPI, SecciApi>();
+builder.Services.AddTransient<IRestClient, RestClient>();
+builder.Services.AddSingleton<ISecciClient, SecciClient>();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

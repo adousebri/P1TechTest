@@ -15,13 +15,20 @@
             _mediator = mediator;
         }
 
-        public FirmSummary FirmSummary()
+        public async Task<FirmSummary> FirmSummary()
         {
-            var portfolois = _mediator.Send(new GetListPortFoliosRequest());
-            var portFolioReport = _mediator.Send(new GetPortfolioReportRequest());
-            var portFolioSummary = _mediator.Send(new GetPortfolioSummaryRequest());
+            var portfolois = await _mediator.Send(new GetListPortFoliosRequest());
+            //var portFolioReport = await _mediator.Send(new GetPortfolioReportRequest());
+            //var portFolioSummary = await _mediator.Send(new GetPortfolioSummaryRequest());
 
-            return new FirmSummary();
+            return new FirmSummary()
+            {
+                FirmId = portfolois.PortFolios.First().FirmId,
+                ClientType = portfolois.PortFolios.First().ClientType,
+                Currency = portfolois.PortFolios.First().Currency,
+                Name = portfolois.PortFolios.First().Name,
+                Status = portfolois.PortFolios.First().Status
+            };
         }
     }
 }

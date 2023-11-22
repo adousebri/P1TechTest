@@ -7,11 +7,11 @@
 
     public class SecciApi : IPortfolioDataAPI
     {
-        private readonly IRestClient _restClient;
+        private readonly ISecciClient _secciClient;
 
-        public SecciApi(IRestClient restClient)
+        public SecciApi(ISecciClient restClient)
         {
-            _restClient = restClient;
+            _secciClient = restClient;
         }
 
         public async Task<AuthenticationData> Authenticate(string firmId, string id, string password)
@@ -22,7 +22,7 @@
             request.AddParameter("firmId", "{{firmId}}");
             request.AddParameter("id", "{{userId}}");
             request.AddParameter("password", "{{userPassword}}");
-            RestResponse<Root<AuthenticationData>> response = await _restClient.ExecuteAsync<Root<AuthenticationData>>(request);
+            RestResponse<Root<AuthenticationData>> response = await _secciClient.Client.ExecuteAsync<Root<AuthenticationData>>(request);
             return response.Data.Data;
         }
 
@@ -32,7 +32,7 @@
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("api-token", "");
             request.AddUrlSegment("firmId", firmId);
-            RestResponse<Root<List<ListPortFoliosData>>> response = await _restClient.ExecuteAsync<Root<List<ListPortFoliosData>>>(request);
+            RestResponse<Root<List<ListPortFoliosData>>> response = await _secciClient.Client.ExecuteAsync<Root<List<ListPortFoliosData>>>(request);
             return response.Data.Data;
         }
 
@@ -45,7 +45,7 @@
             request.AddQueryParameter("type", "Report");
             request.AddQueryParameter("fromdate", fromDate);
             request.AddQueryParameter("toDate", toDate);
-            RestResponse<Root<ReportData>> response = await _restClient.ExecuteAsync<Root<ReportData>>(request);
+            RestResponse<Root<ReportData>> response = await _secciClient.Client.ExecuteAsync<Root<ReportData>>(request);
             return response.Data.Data;
         }
 
@@ -56,7 +56,7 @@
             request.AddHeader("api-token", "");
             request.AddUrlSegment("firmId", firmId);
             request.AddUrlSegment("id", id);
-            RestResponse<Root<SummaryData>> response = await _restClient.ExecuteAsync<Root<SummaryData>>(request);
+            RestResponse<Root<SummaryData>> response = await _secciClient.Client.ExecuteAsync<Root<SummaryData>>(request);
             return response.Data.Data;
         }
     }
