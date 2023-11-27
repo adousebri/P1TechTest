@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\P1Test.Interfaces\P1Test.Interfaces.csproj" />
+    <ProjectReference Include="..\..\P1Test.MiddleWare\P1Test.MiddleWare.csproj" />
+    <ProjectReference Include="..\..\P1Test.Models\P1Test.Models.csproj" />
     <ProjectReference Include="..\p1test.web.react.client\p1test.web.react.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

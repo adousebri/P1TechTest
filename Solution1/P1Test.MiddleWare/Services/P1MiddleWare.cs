@@ -4,6 +4,7 @@
     using P1Test.API.SECCI.Requests;
     using P1Test.Interfaces.Services;
     using P1Test.Models.FrontEnd;
+    using System.Collections.Generic;
 
     public class P1MiddleWare : IMiddleWareService
     {
@@ -12,22 +13,13 @@
         public P1MiddleWare(IMediator mediator)
         {
             _mediator = mediator;
-        }
+        } 
 
-        public async Task<FirmSummary> FirmSummary()
+        public async Task<PortFolioCollection> FirmSummary()
         {
-            var portfolois = await _mediator.Send(new GetListPortFoliosRequest() { FirmId = "Firm1" });
+            return await _mediator.Send(new GetListPortFoliosRequest() { FirmId = "Firm1" });
             //var portFolioReport = await _mediator.Send(new GetPortfolioReportRequest());
             //var portFolioSummary = await _mediator.Send(new GetPortfolioSummaryRequest());
-
-            return new FirmSummary()
-            {
-                FirmId = portfolois.PortFolios.First().FirmId,
-                ClientType = portfolois.PortFolios.First().ClientType,
-                Currency = portfolois.PortFolios.First().Currency,
-                Name = portfolois.PortFolios.First().Name,
-                Status = portfolois.PortFolios.First().Status
-            };
         }
     }
 }

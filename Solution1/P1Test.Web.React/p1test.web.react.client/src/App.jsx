@@ -2,30 +2,31 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-    const [forecasts, setForecasts] = useState();
+    const [portfolois, setPortfolois] = useState();
 
     useEffect(() => {
-        populateWeatherData();
+        populatePortfolois();
     }, []);
 
-    const contents = forecasts === undefined
+    const contents = portfolois === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
         : <table className="table table-striped" aria-labelledby="tabelLabel">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
+                    <th>Firm ID</th>
+                    <th>Name</th>
+                    <th>Currency</th>
+                    <th>Status</th>
+                    <th>Client Type</th>
                 </tr>
             </thead>
             <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
+                {portfolois.map(portfolo =>
+                    <tr key={portfolo.FirmId}>
+                        <td>{portfolo.Name}</td>
+                        <td>{portfolo.Currency}</td>
+                        <td>{portfolo.Status}</td>
+                        <td>{portfolo.ClientType}</td>
                     </tr>
                 )}
             </tbody>
@@ -33,16 +34,16 @@ function App() {
 
     return (
         <div>
-            <h1 id="tabelLabel">Weather forecast</h1>
+            <h1 id="tabelLabel">Summary Portfolio</h1>
             <p>This component demonstrates fetching data from the server.</p>
             {contents}
         </div>
     );
     
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
+    async function populatePortfolois() {
+        const response = await fetch('https://localhost:7169/api/Summary');
         const data = await response.json();
-        setForecasts(data);
+        setPortfolois(data);
     }
 }
 
