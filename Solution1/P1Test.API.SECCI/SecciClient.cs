@@ -10,7 +10,7 @@
 
         public SecciClient(IConfiguration configuration)
         {
-            Client = new RestClient(configuration["Secci.BaseUrl"]);
+            Client = new RestClient(configuration["SecciApi:BaseUrl"]);
         }
     }
 }

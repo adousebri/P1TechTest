@@ -25,7 +25,12 @@
             {
                 PortFolios = portFolios.Select(r => new PortFolioModel()
                 {
-
+                    Id = r.Id,
+                    FirmId = r.FirmId,
+                    Name = r.Name,
+                    Status = r.Status,
+                    Currency = r.Currency,
+                    FirstName = r.Name
                 })
             };
         }

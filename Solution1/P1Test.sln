@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P1Test.API.SECCI.Test", "P1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P1Test.API.SECCI.IntegrationTest", "P1Test.API.SECCI.IntegrationTest\P1Test.API.SECCI.IntegrationTest.csproj", "{A77094F4-6622-45A1-A060-27D38D74D049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1Test.MiddleWare", "P1Test.MiddleWare\P1Test.MiddleWare.csproj", "{569A8E6D-3D3B-4A99-95BC-98A45E09A24A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P1Test.MiddleWare", "P1Test.MiddleWare\P1Test.MiddleWare.csproj", "{569A8E6D-3D3B-4A99-95BC-98A45E09A24A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1Test.Web", "P1Test.Web\P1Test.Web.csproj", "{30328F06-E7F1-427F-B09A-ECB88676823D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P1Test.Web", "P1Test.Web\P1Test.Web.csproj", "{30328F06-E7F1-427F-B09A-ECB88676823D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1Test.Web.React.Server", "P1Test.Web.React\P1Test.Web.React.Server\P1Test.Web.React.Server.csproj", "{D0D359FB-F29B-4AE9-814A-DD2B5341C03E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "p1test.web.react.client", "P1Test.Web.React\p1test.web.react.client\p1test.web.react.client.esproj", "{B23919CF-8F9C-4737-802B-BC9316232479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,16 @@ Global
 		{30328F06-E7F1-427F-B09A-ECB88676823D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30328F06-E7F1-427F-B09A-ECB88676823D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30328F06-E7F1-427F-B09A-ECB88676823D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D359FB-F29B-4AE9-814A-DD2B5341C03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D359FB-F29B-4AE9-814A-DD2B5341C03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D359FB-F29B-4AE9-814A-DD2B5341C03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D359FB-F29B-4AE9-814A-DD2B5341C03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B23919CF-8F9C-4737-802B-BC9316232479}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

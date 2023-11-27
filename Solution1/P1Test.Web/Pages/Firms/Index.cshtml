@@ -2,3 +2,34 @@
 @model P1Test.Web.Pages.Firms.IndexModel
 @{
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firm Summary Page</title>
+</head>
+<body>
+    <h2>Firm Summary</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Firm ID</th>
+                <th>Name</th>
+                <th>Currency</th>
+                <th>Status</th>
+                <th>Client Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.FirmSummary.FirmId</td>
+                <td>@Model.FirmSummary.Name</td>
+                <td>@Model.FirmSummary.Currency</td>
+                <td>@Model.FirmSummary.Status</td>
+                <td>@Model.FirmSummary.ClientType</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

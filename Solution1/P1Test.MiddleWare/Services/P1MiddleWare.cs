@@ -2,7 +2,6 @@
 {
     using MediatR;
     using P1Test.API.SECCI.Requests;
-    using P1Test.Interfaces.API;
     using P1Test.Interfaces.Services;
     using P1Test.Models.FrontEnd;
 
@@ -17,7 +16,7 @@
 
         public async Task<FirmSummary> FirmSummary()
         {
-            var portfolois = await _mediator.Send(new GetListPortFoliosRequest());
+            var portfolois = await _mediator.Send(new GetListPortFoliosRequest() { FirmId = "Firm1" });
             //var portFolioReport = await _mediator.Send(new GetPortfolioReportRequest());
             //var portFolioSummary = await _mediator.Send(new GetPortfolioSummaryRequest());
 

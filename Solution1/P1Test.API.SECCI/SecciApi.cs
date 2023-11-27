@@ -28,10 +28,10 @@
 
         public async Task<IEnumerable<ListPortFoliosData>> GetListPortFolios(string firmId)
         {
-            var request = new RestRequest("/portfolio/", Method.Get);
+            var request = new RestRequest($"/portfolio/{firmId}", Method.Get);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("api-token", "");
-            request.AddUrlSegment("firmId", firmId);
+            //request.AddUrlSegment("firmId", firmId);
             RestResponse<Root<List<ListPortFoliosData>>> response = await _secciClient.Client.ExecuteAsync<Root<List<ListPortFoliosData>>>(request);
             return response.Data.Data;
         }

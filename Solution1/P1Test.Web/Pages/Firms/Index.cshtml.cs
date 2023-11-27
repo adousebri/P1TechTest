@@ -18,10 +18,9 @@ namespace P1Test.Web.Pages.Firms
             _middleWareService = middleWareService;
         }
 
-        public async void OnGet()
+        public void OnGet()
         {
-            FirmSummary = await _middleWareService.FirmSummary();
-
+            FirmSummary = _middleWareService.FirmSummary().Result;
         }
     }
 }

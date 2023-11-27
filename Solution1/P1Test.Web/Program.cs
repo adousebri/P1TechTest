@@ -1,10 +1,13 @@
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using P1Test.API.SECCI;
 using P1Test.API.SECCI.Handlers;
+using P1Test.API.SECCI.Requests;
 using P1Test.Interfaces.API;
 using P1Test.Interfaces.Services;
 using P1Test.MiddleWare.Services;
+using P1Test.Models.FrontEnd;
 using P1Test.Web.Data;
 using RestSharp;
 using System.Reflection;
@@ -20,14 +23,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
-builder.Services.AddMediatR(r =>
-{
-    r.RegisterServicesFromAssemblies(typeof(GetListPortFoliosHandler).GetType().Assembly);
-});
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
 builder.Services.AddTransient<IMiddleWareService, P1MiddleWare>();
 builder.Services.AddTransient<IPortfolioDataAPI, SecciApi>();
 builder.Services.AddTransient<IRestClient, RestClient>();
 builder.Services.AddSingleton<ISecciClient, SecciClient>();
+
+builder.Services.AddTransient<IRequestHandler<GetListPortFoliosRequest, PortFolioCollection>, GetListPortFoliosHandler>();
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
