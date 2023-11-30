@@ -11,16 +11,16 @@ namespace P1Test.Web.Pages.Firms
     {
         private readonly IMiddleWareService _middleWareService;
 
-        public FirmSummary FirmSummary { get; set; }
+        public PortFolioCollection FirmSummary { get; set; }
 
         public IndexModel(IMiddleWareService middleWareService)
         {
             _middleWareService = middleWareService;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-            FirmSummary = _middleWareService.FirmSummary().Result;
+            FirmSummary = await _middleWareService.FirmSummary();
         }
     }
 }

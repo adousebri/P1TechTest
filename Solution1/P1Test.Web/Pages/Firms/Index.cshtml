@@ -22,13 +22,16 @@
             </tr>
         </thead>
         <tbody>
+            @foreach (var firm in Model.FirmSummary.PortFolios)
+            {
             <tr>
-                <td>@Model.FirmSummary.FirmId</td>
-                <td>@Model.FirmSummary.Name</td>
-                <td>@Model.FirmSummary.Currency</td>
-                <td>@Model.FirmSummary.Status</td>
-                <td>@Model.FirmSummary.ClientType</td>
+                    <td>@firm.FirmId</td>
+                    <td>@firm.Name</td>
+                    <td>@firm.Currency</td>
+                    <td>@firm.Status</td>
+                    <td>@firm.ClientType</td>
             </tr>
+            }
         </tbody>
     </table>
 </body>
